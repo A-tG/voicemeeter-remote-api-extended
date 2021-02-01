@@ -1,0 +1,18 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "voicemeeter remote api extended", "voicemeeter remote api extended\voicemeeter remote api extended.shproj", "{0D179400-35B3-43D7-A751-40691E184EF3}"
+EndProject
+Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		voicemeeter remote api extended\voicemeeter remote api extended.projitems*{0d179400-35b3-43d7-a751-40691e184ef3}*SharedItemsImports = 13
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C5A16915-765C-4893-AAE3-4D7144EB745A}
+	EndGlobalSection
+EndGlobal
