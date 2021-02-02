@@ -16,4 +16,12 @@
         Banana = 2,
         Potato = 3
     }
+
+    enum VoicemeeterLevelType
+    {
+        PreFader = 0,
+        PostFader,
+        PostMute,
+        Output
+    }
 }
