@@ -23,8 +23,13 @@ namespace AtgDev.Voicemeeter
         {
             Int32 typeVal;
             var resp = GetVoicemeeterType(out typeVal);
-            type = (VoicemeeterType)typeVal;
+            type = (VoicemeeterType) typeVal;
             return resp;
+        }
+
+        public Int32 GetLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, out Single val)
+        {
+            return GetLevel((int) type, (int) channel, out val);
         }
 
         /// <summary>
