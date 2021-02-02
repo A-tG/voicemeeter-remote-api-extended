@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AtgDev.Voicemeeter.Types
+﻿namespace AtgDev.Voicemeeter.Types
 {
     enum MacrobuttonMode
     {
