@@ -32,4 +32,20 @@
         KS,
         ASIO
     }
+
+    struct BasicDeviceInfo
+    {
+        public BasicDeviceInfo(string name, string hardwareID, DeviceType type)
+        {
+            Name = name;
+            HardwareID = hardwareID;
+            Type = type;
+        }
+
+        public string Name { get; set; }
+        public string HardwareID { get; set; }
+        public DeviceType Type { get; set; }
+
+        public override string ToString() => $"Device: {Name}, Hardware ID: {HardwareID}, Type: {Type.ToString("g")}";
+    }
 }
