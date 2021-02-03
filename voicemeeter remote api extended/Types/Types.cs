@@ -24,4 +24,12 @@
         PostMute,
         Output
     }
+
+    enum DeviceType
+    {
+        MME = 1,
+        WDM = 3,
+        KS,
+        ASIO
+    }
 }
