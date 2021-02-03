@@ -47,6 +47,24 @@ namespace AtgDev.Voicemeeter
         }
 
         /// <summary>
+        ///     Get name and hardware ID of the input device according index
+        /// </summary>
+        /// <param name="index">zero based index</param>
+        /// <param name="type">Variable receiving the type</param>
+        /// <param name="deviceName">Variable receiving the the device name</param>
+        /// <param name="hardwareID">Variable receiving the the hardware ID</param>
+        /// <returns>
+        ///     0: OK (no error).<br/>
+        /// </returns>
+        public Int32 GetInputDeviceDescriptor(Int32 index, out DeviceType type, out string deviceName, out string hardwareID)
+        {
+            Int32 typeVal;
+            var resp = GetInputDeviceDescriptor(index, out typeVal, out deviceName, out hardwareID);
+            type = (DeviceType)typeVal;
+            return resp;
+        }
+
+        /// <summary>
         ///     Set current button value.
         /// </summary>
         /// <param name="buttonIndex">button index: 0 to 79</param>
