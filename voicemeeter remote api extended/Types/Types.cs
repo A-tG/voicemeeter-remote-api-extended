@@ -1,4 +1,6 @@
-﻿namespace AtgDev.Voicemeeter.Types
+﻿using System;
+
+namespace AtgDev.Voicemeeter.Types
 {
     enum MacrobuttonMode
     {
@@ -31,6 +33,29 @@
         WDM = 3,
         KS,
         ASIO
+    }
+
+    struct VoicemeeterLevel
+    {
+        public VoicemeeterLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, Single value)
+        {
+            this.type = type;
+            this.channel = channel;
+            this.value = value;
+        }
+
+        public VoicemeeterLevel(VoicemeeterLevelType type, VoicemeeterChannel channel)
+        {
+            this.type = type;
+            this.channel = channel;
+            this.value = 0;
+        }
+
+        public VoicemeeterLevelType type;
+        public VoicemeeterChannel channel;
+        public Single value;
+
+        public override string ToString() => $"{value}, channel: {(int)channel}, {type:g}";
     }
 
     struct BasicDeviceInfo
