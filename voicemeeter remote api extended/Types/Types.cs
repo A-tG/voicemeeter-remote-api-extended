@@ -37,15 +37,15 @@
     {
         public BasicDeviceInfo(string name, string hardwareID, DeviceType type)
         {
-            Name = name;
-            HardwareID = hardwareID;
-            Type = type;
+            this.name = name;
+            this.hardwareID = hardwareID;
+            this.type = type;
         }
 
-        public string Name { get; set; }
-        public string HardwareID { get; set; }
-        public DeviceType Type { get; set; }
+        public string name;
+        public string hardwareID;
+        public DeviceType type;
 
-        public override string ToString() => $"Device: {Name}, Hardware ID: {HardwareID}, Type: {Type:g}";
+        public override string ToString() => $"Device: {name}, Hardware ID: {hardwareID}, Type: {type:g}";
     }
 }
