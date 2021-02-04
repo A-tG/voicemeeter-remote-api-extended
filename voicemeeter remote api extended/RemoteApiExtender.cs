@@ -41,11 +41,14 @@ namespace AtgDev.Voicemeeter
         /// </returns>
         public Int32 GetLevel(ref VoicemeeterLevel level)
         {
-            var type = (int)level.value;
-            var channel = (int)level.channel;
-            var resp = GetLevel(type, channel, out Single val);
+            var resp = GetLevel(level.type, level.channel, out Single val);
             level.value = val;
             return resp;
+        }
+
+        public Int32 GetLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, out Single val)
+        {
+            return GetLevel((int)type, (int)channel, out val);
         }
 
         /// <summary>
