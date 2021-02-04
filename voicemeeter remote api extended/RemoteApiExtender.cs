@@ -46,6 +46,20 @@ namespace AtgDev.Voicemeeter
             return resp;
         }
 
+        /// <summary>
+        ///     <para>Get Current levels.</para>
+        ///     this function must be called from one thread only
+        /// </summary>
+        /// <param name="type">What type of level to read</param>
+        /// <param name="channel">Audio channel</param>
+        /// <param name="val">The variable receiving the wanted value.</param>
+        /// <returns>
+        ///     0: OK (no error).<br/>
+        ///     -1: error<br/>
+        ///     -2: no server.<br/>
+        ///     -3: no level available<br/>
+        ///     -4: out of range<br/>
+        /// </returns>
         public Int32 GetLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, out Single val)
         {
             return GetLevel((int)type, (int)channel, out val);
@@ -78,6 +92,28 @@ namespace AtgDev.Voicemeeter
         {
             var resp = GetInputDeviceDescriptor(index, out Int32 type, out string deviceName, out string hardwareID);
             devInfo = new BasicDeviceInfo(deviceName, hardwareID, (DeviceType)type);
+            return resp;
+        }
+
+        /// <summary>
+        ///     Get name and hardware ID of the device according index
+        /// </summary>
+        /// <param name="index">zero based index</param>
+        /// <param name="devInfo">Variable receiving the device information</param>
+        /// <param name="route">What type of device (input or output)</param>
+        /// <returns>
+        ///     0: OK (no error).<br/>
+        /// </returns>
+        public Int32 GetDeviceDescriptor(Int32 index, out BasicDeviceInfo devInfo, DeviceRoute route)
+        {
+            Int32 resp;
+            if (route == DeviceRoute.Input)
+            {
+                resp = GetInputDeviceDescriptor(index, out devInfo);
+            } else
+            {
+                resp = GetOutputDeviceDescriptor(index, out devInfo);
+            }
             return resp;
         }
 

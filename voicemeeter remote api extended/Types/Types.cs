@@ -35,6 +35,12 @@ namespace AtgDev.Voicemeeter.Types
         ASIO
     }
 
+    enum DeviceRoute
+    {
+        Input,
+        Output
+    }
+
     struct VoicemeeterLevel
     {
         public VoicemeeterLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, Single value)
