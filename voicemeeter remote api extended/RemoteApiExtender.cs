@@ -31,9 +31,6 @@ namespace AtgDev.Voicemeeter
         ///     <para>Get Current levels.</para>
         ///     this function must be called from one thread only
         /// </summary>
-        /// <param name="type">What type of level to read</param>
-        /// <param name="channel">Audio channel</param>
-        /// <param name="val">The variable receiving the wanted value.</param>
         /// <returns>
         ///     0: OK (no error).<br/>
         ///     -1: error<br/>
@@ -41,9 +38,13 @@ namespace AtgDev.Voicemeeter
         ///     -3: no level available<br/>
         ///     -4: out of range<br/>
         /// </returns>
-        public Int32 GetLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, out Single val)
+        public Int32 GetLevel(ref VoicemeeterLevel level)
         {
-            return GetLevel((int)type, (int)channel, out val);
+            var type = (int)level.value;
+            var channel = (int)level.channel;
+            var resp = GetLevel(type, channel, out Single val);
+            level.value = val;
+            return resp;
         }
 
         /// <summary>
