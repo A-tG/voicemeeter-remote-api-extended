@@ -31,6 +31,7 @@ namespace AtgDev.Voicemeeter
         ///     <para>Get Current levels.</para>
         ///     this function must be called from one thread only
         /// </summary>
+        /// <param name="level">Variable to put level's value</param>
         /// <returns>
         ///     0: OK (no error).<br/>
         ///     -1: error<br/>
