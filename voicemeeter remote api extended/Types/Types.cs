@@ -77,6 +77,6 @@ namespace AtgDev.Voicemeeter.Types
         public string hardwareID;
         public DeviceType type;
 
-        public override string ToString() => $"Device: {name}, Hardware ID: {hardwareID}, Type: {type:g}";
+        public override string ToString() => $"Device: {name}, Hardware ID: {hardwareID}, Type: {type}";
     }
 }
