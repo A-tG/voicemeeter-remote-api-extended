@@ -11,6 +11,30 @@ namespace AtgDev.Voicemeeter
         public RemoteApiExtender(string dllPath) : base(dllPath) { }
 
         /// <summary>
+        ///     Call this method after the Login()<br/>
+        ///     Calls internaly IsParametersDirty() in a loop
+        /// </summary>
+        /// <param name="maxTime">Max time in ms before function exit</param>
+        /// <param name="tickTime">Time in ms to wait between internal loop iterations</param>
+        /// <returns>
+        ///     Same as IsParametersDirty()
+        /// </returns>
+        public Int32 WaitForUpdatedParams(int maxTime = 10000, int tickTime = 1000 / 60)
+        {
+            Int32 resp = IsParametersDirty();
+            for (int time = 0; time < maxTime; time += tickTime)
+            {
+                if (resp != 0)
+                {
+                    break;
+                }
+                System.Threading.Thread.Sleep(tickTime);
+                resp = IsParametersDirty();
+            }
+            return resp;
+        }
+
+        /// <summary>
         ///     Get Voicemeeter Type.
         /// </summary>
         /// <param name="type">The variable receiving the type</param>
