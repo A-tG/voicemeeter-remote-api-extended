@@ -46,8 +46,7 @@ namespace AtgDev.Voicemeeter
         /// </returns>
         public Int32 GetVoicemeeterType(out VoicemeeterType type)
         {
-            Int32 typeVal;
-            var resp = GetVoicemeeterType(out typeVal);
+            var resp = GetVoicemeeterType(out Int32 typeVal);
             type = (VoicemeeterType)typeVal;
             return resp;
         }
