@@ -66,7 +66,7 @@ namespace AtgDev.Voicemeeter
         public Int32 GetLevel(ref VoicemeeterLevel level)
         {
             var resp = GetLevel(level.type, level.channel, out Single val);
-            level.value = val;
+            level.Value = val;
             return resp;
         }
 
