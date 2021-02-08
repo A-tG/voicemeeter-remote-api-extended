@@ -47,21 +47,37 @@ namespace AtgDev.Voicemeeter.Types
         {
             this.type = type;
             this.channel = channel;
-            this.value = value;
+            m_value = value;
         }
 
         public VoicemeeterLevel(VoicemeeterLevelType type, VoicemeeterChannel channel)
         {
             this.type = type;
             this.channel = channel;
-            this.value = 0;
+            m_value = 0;
         }
 
         public VoicemeeterLevelType type;
         public VoicemeeterChannel channel;
-        public Single value;
 
-        public override string ToString() => $"{value}, channel: {(int)channel}, {type}";
+        private Single m_value;
+
+        public Single Value
+        {
+            get => m_value;
+            set => m_value = Math.Abs(value);
+        }
+
+        public double ValueDB
+        {
+            get => 20 * Math.Log10(m_value);
+            set => m_value = (float)Math.Pow(10, value / 20);
+        }
+
+        public override string ToString() 
+        {
+            return $"{m_value}, {ValueDB:0.#}db channel: {(int)channel}, {type}";
+        }
     }
 
     struct BasicDeviceInfo
