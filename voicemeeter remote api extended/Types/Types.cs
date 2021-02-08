@@ -61,7 +61,7 @@ namespace AtgDev.Voicemeeter.Types
         public VoicemeeterChannel channel;
         public Single value;
 
-        public override string ToString() => $"{value}, channel: {(int)channel}, {type:g}";
+        public override string ToString() => $"{value}, channel: {(int)channel}, {type}";
     }
 
     struct BasicDeviceInfo
