@@ -5,7 +5,8 @@ namespace AtgDev.Voicemeeter
 {
     /// <summary>
     ///     <para>Extended Voicemeeter Remote API</para>
-    ///     Have methods that are using custom types
+    ///     Have methods that use custom types
+    /// </summary>>
     class RemoteApiExtender : RemoteApiWrapper
     {
         public RemoteApiExtender(string dllPath) : base(dllPath) { }
