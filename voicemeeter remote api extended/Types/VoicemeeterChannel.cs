@@ -1,5 +1,16 @@
 ﻿namespace AtgDev.Voicemeeter.Types
 {
+    /// <summary>
+    ///     <para>Index numbers of names:</para>
+    ///     L - 1<br/>
+    ///     R - 2<br/>
+    ///     C - 3<br/>
+    ///     LFE - 4<br/>
+    ///     SL - 5<br/>
+    ///     SR - 6<br/>
+    ///     BL - 7<br/>
+    ///     BR - 8<br/>
+    /// </summary>
     enum VoicemeeterChannel
     {
         // Voicemeeter
