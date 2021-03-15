@@ -53,6 +53,45 @@ namespace AtgDev.Voicemeeter
         }
 
         /// <summary>
+        ///     Get Voicemeeter Version
+        /// </summary>
+        /// <param name="version">
+        ///     Variable receiving the version
+        /// </param>
+        /// <returns>
+        ///     0: OK (no error).<br/>
+        ///     -1: cannot get client (unexpected)<br/>
+        ///     -2: no server.<br/>
+        /// </returns>
+        public Int32 GetVoicemeeterVersion(out VoicemeeterVersion version)
+        {
+            var resp = GetVoicemeeterVersion(out int ver);
+            version.v1 = (int)((ver & 0xFF000000) >> 24);
+            version.v2 = (ver & 0x00FF0000) >> 16;
+            version.v3 = (ver & 0x0000FF00) >> 8;
+            version.v4 = ver & 0x000000FF;
+            return resp;
+        }
+
+        /// <summary>
+        ///     Get Voicemeeter Version
+        /// </summary>
+        /// <param name="version">
+        ///     Variable receiving the version
+        /// </param>
+        /// <returns>
+        ///     0: OK (no error).<br/>
+        ///     -1: cannot get client (unexpected)<br/>
+        ///     -2: no server.<br/>
+        /// </returns>
+        public Int32 GetVoicemeeterVersion(out string version)
+        {
+            var resp = GetVoicemeeterVersion(out VoicemeeterVersion ver);
+            version = ver.ToString();
+            return resp;
+        }
+
+        /// <summary>
         ///     <para>Get Current levels.</para>
         ///     this function must be called from one thread only
         /// </summary>
