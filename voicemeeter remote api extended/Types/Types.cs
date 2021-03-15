@@ -41,6 +41,19 @@ namespace AtgDev.Voicemeeter.Types
         Output
     }
 
+    struct VoicemeeterVersion
+    {
+        public int v1;
+        public int v2;
+        public int v3;
+        public int v4;
+
+        public override string ToString()
+        {
+            return $"{v1}.{v2}.{v3}.{v4}";
+        }
+    }
+
     struct VoicemeeterLevel
     {
         public VoicemeeterLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, Single value)
