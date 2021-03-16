@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Types\Types.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Types\common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Types\VoicemeeterChannel.cs" />
   </ItemGroup>
 </Project>
