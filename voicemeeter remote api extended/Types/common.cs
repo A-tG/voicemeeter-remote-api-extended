@@ -17,6 +17,7 @@ namespace AtgDev.Voicemeeter.Types
         Standard = 1,
         Banana = 2,
         Potato = 3,
+        // new in 3.0.1.7+
         Potato64 = 6
     }
 

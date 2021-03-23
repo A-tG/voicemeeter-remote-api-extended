@@ -36,6 +36,20 @@ namespace AtgDev.Voicemeeter
             return resp;
         }
 
+
+        /// <summary>
+        ///     Run Voicemeeter Application (get installation directory and run Voicemeeter Application).
+        /// </summary>
+        /// <param name="type">Voicemeeter type</param>
+        /// <returns>
+        ///     0: Ok.<br/>
+        ///     -1: not installed<br/>
+        /// </returns>
+        public Int32 RunVoicemeeter(VoicemeeterType type)
+        {
+            return RunVoicemeeter((int)type);
+        }
+
         /// <summary>
         ///     Get Voicemeeter Type.
         /// </summary>
