@@ -16,7 +16,8 @@ namespace AtgDev.Voicemeeter.Types
     {
         Standard = 1,
         Banana = 2,
-        Potato = 3
+        Potato = 3,
+        Potato64 = 6
     }
 
     enum VoicemeeterLevelType
