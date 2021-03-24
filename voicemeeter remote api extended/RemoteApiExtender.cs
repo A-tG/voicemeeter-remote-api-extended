@@ -16,8 +16,8 @@ namespace AtgDev.Voicemeeter
         ///     Crucial to call this method after the Login()<br/>
         ///     Calls internaly IsParametersDirty() in a loop
         /// </summary>
-        /// <param name="maxTime">Max time in ms before function exit</param>
-        /// <param name="tickTime">Time in ms between requests</param>
+        /// <param name="maxTime">Max time in ms before function exit (ms)</param>
+        /// <param name="tickTime">Time in ms between requests (ms)</param>
         /// <returns>
         ///     Same as IsParametersDirty()
         /// </returns>
