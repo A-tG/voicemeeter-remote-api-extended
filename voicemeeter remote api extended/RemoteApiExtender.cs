@@ -21,7 +21,7 @@ namespace AtgDev.Voicemeeter
         /// <returns>
         ///     Same as IsParametersDirty()
         /// </returns>
-        public Int32 WaitForNewParams(int timeout = 10000, int tickTime = 1000 / 60)
+        public Int32 WaitForNewParams(int timeout = 1000, int tickTime = 1000 / 60)
         {
             Int32 resp = IsParametersDirty();
             for (int time = 0; time < timeout; time += tickTime)
