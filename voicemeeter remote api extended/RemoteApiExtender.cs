@@ -80,10 +80,7 @@ namespace AtgDev.Voicemeeter
         public Int32 GetVoicemeeterVersion(out VoicemeeterVersion version)
         {
             var resp = GetVoicemeeterVersion(out int ver);
-            version.v1 = (int)((ver & 0xFF000000) >> 24);
-            version.v2 = (ver & 0x00FF0000) >> 16;
-            version.v3 = (ver & 0x0000FF00) >> 8;
-            version.v4 = ver & 0x000000FF;
+            version = (VoicemeeterVersion)ver;
             return resp;
         }
 
