@@ -193,6 +193,8 @@
         PotatoVirtOutB1SR,
         PotatoVirtOutB1BL,
         PotatoVirtOutB1BR,
+        PotatoVirtOutB1First = PotatoVirtOutB1L,
+        PotatoVirtOutB1Last = PotatoVirtOutB1BR,
 
         PotatoVirtOutB2L,
         PotatoVirtOutB2R,
@@ -202,6 +204,8 @@
         PotatoVirtOutB2SR,
         PotatoVirtOutB2BL,
         PotatoVirtOutB2BR,
+        PotatoVirtOutB2First = PotatoVirtOutB2L,
+        PotatoVirtOutB2Last = PotatoVirtOutB2BR,
 
         PotatoVirtOutB3L,
         PotatoVirtOutB3R,
@@ -211,5 +215,7 @@
         PotatoVirtOutB3SR,
         PotatoVirtOutB3BL,
         PotatoVirtOutB3BR,
+        PotatoVirtOutB3First = PotatoVirtOutB3L,
+        PotatoVirtOutB3Last = PotatoVirtOutB3BR
     }
 }
