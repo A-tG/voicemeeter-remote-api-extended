@@ -9,8 +9,14 @@
     <Import_RootNamespace>voicemeeter_remote_api_extended</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender partial\DevicesEnumerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender partial\GeneralInformation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender partial\GetLevels.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender partial\MacroButtons.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)RemoteApiExtender partial\RemoteApiExtender.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Types\common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Types\VoicemeeterChannel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Types\VoicemeeterLevel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Types\VoicemeeterVersion.cs" />
   </ItemGroup>
 </Project>
