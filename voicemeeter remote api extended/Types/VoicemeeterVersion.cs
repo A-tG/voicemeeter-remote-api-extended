@@ -4,12 +4,12 @@ namespace AtgDev.Voicemeeter.Types
 {
     struct VoicemeeterVersion : IComparable<VoicemeeterVersion>, IEquatable<VoicemeeterVersion>
     {
-        public uint v1;
-        public uint v2;
-        public uint v3;
-        public uint v4;
+        public int v1;
+        public int v2;
+        public int v3;
+        public int v4;
 
-        public VoicemeeterVersion(uint ver1, uint ver2, uint ver3, uint ver4)
+        public VoicemeeterVersion(int ver1, int ver2, int ver3, int ver4)
         {
             v1 = v2 = v3 = v4 = 0;
             Assign(ver1, ver2, ver3, ver4);
@@ -18,7 +18,7 @@ namespace AtgDev.Voicemeeter.Types
         public VoicemeeterVersion(Int32 version)
         {
             v1 = v2 = v3 = v4 = 0;
-            Assign(version);
+            SingleNumber = version;
         }
 
         public VoicemeeterVersion(string version)
@@ -30,7 +30,7 @@ namespace AtgDev.Voicemeeter.Types
             }
         }
 
-        public void Assign(uint ver1, uint ver2, uint ver3, uint ver4)
+        public void Assign(int ver1, int ver2, int ver3, int ver4)
         {
             v1 = ver1;
             v2 = ver2;
@@ -38,16 +38,27 @@ namespace AtgDev.Voicemeeter.Types
             v4 = ver4;
         }
 
-        public void Assign(Int32 version)
+        public Int32 SingleNumber
         {
-            var ver = (version & 0xFF000000) >> 24;
-            v1 = (uint)ver;
-            ver = (version & 0x00FF0000) >> 16;
-            v2 = (uint)ver;
-            ver = (version & 0x0000FF00) >> 8;
-            v3 = (uint)ver;
-            ver = version & 0x000000FF;
-            v4 = (uint)ver;
+            get
+            {
+                int result = (v4 & 0x000000FF);
+                result |= (v3 << 8) & 0x0000FF00;
+                result |= (v2 << 16) & 0x00FF0000;
+                result |= (int)((v1 << 24) & 0xFF000000);
+                return result;
+            }
+            set
+            {
+                var ver = (int)((value & 0xFF000000) >> 24);
+                v1 = ver;
+                ver = (value & 0x00FF0000) >> 16;
+                v2 = ver;
+                ver = (value & 0x0000FF00) >> 8;
+                v3 = ver;
+                ver = value & 0x000000FF;
+                v4 = ver;
+            }
         }
 
         public bool TryParse(string version)
@@ -60,20 +71,17 @@ namespace AtgDev.Voicemeeter.Types
                 var versionSplit = version.Split('.');
                 if (versionSplit.Length <= numbers)
                 {
-                    var isValidNumber = uint.TryParse(versionSplit[0], out v1);
-                    isValidNumber &= uint.TryParse(versionSplit[1], out v2);
-                    isValidNumber &= uint.TryParse(versionSplit[2], out v3);
-                    isValidNumber &= uint.TryParse(versionSplit[3], out v4);
-                    if (isValidNumber)
-                    {
-                        result = true;
-                    }
+                    var isValidNumber = int.TryParse(versionSplit[0], out v1);
+                    isValidNumber &= int.TryParse(versionSplit[1], out v2);
+                    isValidNumber &= int.TryParse(versionSplit[2], out v3);
+                    isValidNumber &= int.TryParse(versionSplit[3], out v4);
+                    result = isValidNumber;
                 }
             }
             return result;
         }
 
-        public static explicit operator VoicemeeterVersion(Int32 n)
+        public static explicit operator VoicemeeterVersion(int n)
         {
             var version = new VoicemeeterVersion(n);
             return version;
@@ -94,10 +102,10 @@ namespace AtgDev.Voicemeeter.Types
 
         public int CompareTo(VoicemeeterVersion other)
         {
-            uint[] thisVersion = { v1, v2, v3, v4 };
-            uint[] otherVersion = { other.v1, other.v2, other.v3, other.v4 };
-            uint thisV;
-            uint otherV;
+            int[] thisVersion = { v1, v2, v3, v4 };
+            int[] otherVersion = { other.v1, other.v2, other.v3, other.v4 };
+            int thisV;
+            int otherV;
             for (var i = 0; i < thisVersion.Length; i++)
             {
                 thisV = thisVersion[i];
