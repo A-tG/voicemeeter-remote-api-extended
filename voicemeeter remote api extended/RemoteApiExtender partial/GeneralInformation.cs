@@ -35,7 +35,7 @@ namespace AtgDev.Voicemeeter
         public Int32 GetVoicemeeterVersion(out VoicemeeterVersion version)
         {
             var resp = GetVoicemeeterVersion(out int ver);
-            version = (VoicemeeterVersion)ver;
+            version = new VoicemeeterVersion(ver);
             return resp;
         }
 
