@@ -24,10 +24,7 @@ namespace AtgDev.Voicemeeter.Types
         public VoicemeeterVersion(string version)
         {
             v1 = v2 = v3 = v4 = 0;
-            if (!TryParse(version))
-            {
-                v1 = v2 = v3 = v4 = 0;
-            }
+            TryParse(version);
         }
 
         public void Assign(int ver1, int ver2, int ver3, int ver4)
@@ -71,11 +68,18 @@ namespace AtgDev.Voicemeeter.Types
                 var versionSplit = version.Split('.');
                 if (versionSplit.Length <= numbers)
                 {
-                    var isValidNumber = int.TryParse(versionSplit[0], out v1);
-                    isValidNumber &= int.TryParse(versionSplit[1], out v2);
-                    isValidNumber &= int.TryParse(versionSplit[2], out v3);
-                    isValidNumber &= int.TryParse(versionSplit[3], out v4);
-                    result = isValidNumber;
+                    var isValidNumber = int.TryParse(versionSplit[0], out int ver1);
+                    isValidNumber &= int.TryParse(versionSplit[1], out int ver2);
+                    isValidNumber &= int.TryParse(versionSplit[2], out int ver3);
+                    isValidNumber &= int.TryParse(versionSplit[3], out int ver4);
+                    if (isValidNumber)
+                    {
+                        v1 = ver1;
+                        v2 = ver2;
+                        v3 = ver3;
+                        v4 = ver4;
+                        result = true;
+                    }
                 }
             }
             return result;
