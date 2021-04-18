@@ -23,13 +23,10 @@ namespace AtgDev.Voicemeeter
         /// </returns>
         public Int32 WaitForNewParams(int timeout = 1000, int tickTime = 1000 / 60)
         {
-            Int32 resp = IsParametersDirty();
+            var resp = IsParametersDirty();
             for (int time = 0; time < timeout; time += tickTime)
             {
-                if (resp != 0)
-                {
-                    break;
-                }
+                if (resp != 0) break;
                 System.Threading.Thread.Sleep(tickTime);
                 resp = IsParametersDirty();
             }
