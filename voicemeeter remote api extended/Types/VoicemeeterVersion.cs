@@ -61,6 +61,8 @@ namespace AtgDev.Voicemeeter.Types
         public bool TryParse(string version)
         {
             bool result = false;
+            // because Voicemeeter uses 4 numbers, 8 bit each in single 32bit integer
+            // 255.255.255.255 (or 127.255.255.255)
             const int maxLen = 15;
             const int numbers = 4;
             if (version.Length <= maxLen)
