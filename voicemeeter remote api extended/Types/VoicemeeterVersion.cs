@@ -2,28 +2,25 @@
 
 namespace AtgDev.Voicemeeter.Types
 {
-    struct VoicemeeterVersion : IComparable<VoicemeeterVersion>, IEquatable<VoicemeeterVersion>
+    class VoicemeeterVersion : IComparable<VoicemeeterVersion>, IEquatable<VoicemeeterVersion>
     {
-        public int v1;
-        public int v2;
-        public int v3;
-        public int v4;
+        public int v1 = 0;
+        public int v2 = 0;
+        public int v3 = 0;
+        public int v4 = 0;
 
         public VoicemeeterVersion(int ver1, int ver2, int ver3, int ver4)
         {
-            v1 = v2 = v3 = v4 = 0;
             Assign(ver1, ver2, ver3, ver4);
         }
 
         public VoicemeeterVersion(Int32 version)
         {
-            v1 = v2 = v3 = v4 = 0;
             SingleNumber = version;
         }
 
         public VoicemeeterVersion(string version)
         {
-            v1 = v2 = v3 = v4 = 0;
             TryParse(version);
         }
 
@@ -85,12 +82,6 @@ namespace AtgDev.Voicemeeter.Types
                 }
             }
             return result;
-        }
-
-        public static explicit operator VoicemeeterVersion(int n)
-        {
-            var version = new VoicemeeterVersion(n);
-            return version;
         }
 
         public override string ToString()
