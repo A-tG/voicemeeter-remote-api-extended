@@ -2,7 +2,7 @@
 
 namespace AtgDev.Voicemeeter.Types
 {
-    struct VoicemeeterLevel
+    public struct VoicemeeterLevel
     {
         public VoicemeeterLevel(VoicemeeterLevelType type, VoicemeeterChannel channel, Single value)
         {

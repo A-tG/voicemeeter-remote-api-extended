@@ -1,6 +1,6 @@
 ﻿namespace AtgDev.Voicemeeter.Types
 {
-    enum MacrobuttonMode
+    public enum MacrobuttonMode
     {
         /// <summary>PUSH or RELEASE state</summary>
         Default = 0,
@@ -10,7 +10,7 @@
         Trigger = 3
     }
 
-    enum VoicemeeterType
+    public enum VoicemeeterType
     {
         Standard = 1,
         Banana = 2,
@@ -19,7 +19,7 @@
         Potato64 = 6
     }
 
-    enum VoicemeeterLevelType
+    public enum VoicemeeterLevelType
     {
         PreFader = 0,
         PostFader,
@@ -27,7 +27,7 @@
         Output
     }
 
-    enum DeviceType
+    public enum DeviceType
     {
         MME = 1,
         WDM = 3,
@@ -35,13 +35,13 @@
         ASIO
     }
 
-    enum DeviceRoute
+    public enum DeviceRoute
     {
         Input,
         Output
     }
 
-    struct BasicDeviceInfo
+    public struct BasicDeviceInfo
     {
         public BasicDeviceInfo(string name, string hardwareID, DeviceType type)
         {

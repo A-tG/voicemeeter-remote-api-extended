@@ -2,7 +2,7 @@
 
 namespace AtgDev.Voicemeeter.Types
 {
-    class VoicemeeterVersion : IComparable<VoicemeeterVersion>, IEquatable<VoicemeeterVersion>
+    public class VoicemeeterVersion : IComparable<VoicemeeterVersion>, IEquatable<VoicemeeterVersion>
     {
         public int v1 = 0;
         public int v2 = 0;

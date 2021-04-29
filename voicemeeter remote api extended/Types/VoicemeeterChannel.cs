@@ -12,7 +12,7 @@
     ///     BL - 6<br/>
     ///     BR - 7<br/>
     /// </summary>
-    enum VoicemeeterChannel
+    public enum VoicemeeterChannel
     {
         // Voicemeeter
         Strip1L = 0,
