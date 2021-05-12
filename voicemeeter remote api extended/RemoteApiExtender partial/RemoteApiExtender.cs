@@ -34,6 +34,28 @@ namespace AtgDev.Voicemeeter
         }
 
         /// <summary>
+        ///     Waiting for voicemeeter's macro buttons parameters to update, exits if waiting too long<br/>
+        ///     Might be crucial to call this method after the Login() in order to be able to get correct macro buttons status<br/>
+        ///     Calls internaly MacroButtonIsDirty() in a loop
+        /// </summary>
+        /// <param name="maxTime">Max time in ms before function exit (ms)</param>
+        /// <param name="tickTime">Time in ms between requests (ms)</param>
+        /// <returns>
+        ///     Same as IsParametersDirty()
+        /// </returns>
+        public Int32 WaitForMacroNewParams(int timeout = 1000, int tickTime = 1000 / 60)
+        {
+            int resp = MacroButtonIsDirty();
+            for (int time = 0; time < timeout; time += tickTime)
+            {
+                if (resp != 0) break;
+                System.Threading.Thread.Sleep(tickTime);
+                resp = MacroButtonIsDirty();
+            }
+            return resp;
+        }
+
+        /// <summary>
         ///     Run Voicemeeter Application (get installation directory and run Voicemeeter Application).
         /// </summary>
         /// <param name="type">Voicemeeter type</param>
