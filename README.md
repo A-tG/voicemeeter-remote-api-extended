@@ -6,8 +6,8 @@ Provides custom types and methods for Voicemeeter Remote API wrapper.
 **Methods and types might change.** That's why this is not included with basic Voicemeeter wrapper
 
 ### Dependencies:
-* [Dynamic wrapper for umanaged dll](https://github.com/A-tG/Dynamic-wrapper-for-unmanaged-dll) [![nuget](https://img.shields.io/nuget/v/a-tg.UnmanagedLibWrap)](https://www.nuget.org/packages/a-tg.UnmanagedLibWrap)
-* [Voicemeeter Remote API dll dynamic wrapper](https://github.com/A-tG/Voicemeeter-Remote-API-dll-dynamic-wrapper)
+* [Dynamic wrapper for umanaged dll](https://github.com/A-tG/Dynamic-wrapper-for-unmanaged-dll)
+* [Voicemeeter Remote API dll dynamic wrapper](https://github.com/A-tG/Voicemeeter-Remote-API-dll-dynamic-wrapper) [![nuget](https://img.shields.io/nuget/v/a-tg.VmrapiDynWrap)](https://www.nuget.org/packages/a-tg.VmrapiDynWrap)
 
 ## Do you like my projects? Donate
 [![Paypal Logo](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png)](https://www.paypal.me/atgDeveloperMusician/5)
