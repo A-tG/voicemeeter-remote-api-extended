@@ -91,10 +91,10 @@ namespace AtgDev.Voicemeeter.Types
 
         public bool Equals(VoicemeeterVersion version)
         {
-            return (v1 == version.v1) &&
-                (v2 == version.v2) &&
+            return (v4 == version.v4) &&
                 (v3 == version.v3) &&
-                (v4 == version.v4);
+                (v2 == version.v2) &&
+                (v1 == version.v1);
         }
 
         public int CompareTo(VoicemeeterVersion other)
@@ -109,10 +109,7 @@ namespace AtgDev.Voicemeeter.Types
                 otherV = otherVersion[i];
                 if (thisV != otherV)
                 {
-                    if (thisV > otherV)
-                        return 1;
-                    else
-                        return -1;
+                    return thisV > otherV ? 1 : -1;
                 }
             }
             return 0;
