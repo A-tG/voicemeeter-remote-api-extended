@@ -17,6 +17,7 @@ namespace AtgDev.Voicemeeter
         ///     Waiting for voicemeeter's parameters to update, exits if waiting too long<br/>
         ///     Crucial to call this method after the Login()<br/>
         ///     Calls internaly IsParametersDirty() in a loop
+        ///     Uses Thread.Sleep()
         /// </summary>
         /// <param name="maxTime">Max time in ms before function exit (ms)</param>
         /// <param name="tickTime">Time in ms between requests (ms)</param>
@@ -62,6 +63,7 @@ namespace AtgDev.Voicemeeter
         ///     Waiting for voicemeeter's macro buttons parameters to update, exits if waiting too long<br/>
         ///     Might be crucial to call this method after the Login() in order to be able to get correct macro buttons status<br/>
         ///     Calls internaly MacroButtonIsDirty() in a loop
+        ///     Uses Thread.Sleep()
         /// </summary>
         /// <param name="maxTime">Max time in ms before function exit (ms)</param>
         /// <param name="tickTime">Time in ms between requests (ms)</param>
