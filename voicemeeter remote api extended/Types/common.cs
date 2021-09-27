@@ -12,9 +12,10 @@
 
     public enum VoicemeeterType
     {
-        Standard = 1,
-        Banana = 2,
-        Potato = 3,
+        None = 0,
+        Standard,
+        Banana,
+        Potato,
         // new in 3.0.1.7+
         Potato64 = 6
     }
@@ -29,7 +30,8 @@
 
     public enum DeviceType
     {
-        MME = 1,
+        None = 0,
+        MME,
         WDM = 3,
         KS,
         ASIO
