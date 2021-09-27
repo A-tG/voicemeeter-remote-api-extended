@@ -36,6 +36,7 @@ namespace AtgDev.Voicemeeter
             return resp;
         }
 
+#if !NET40
         /// <summary>
         ///     Waiting for voicemeeter's parameters to update, exits if waiting too long<br/>
         ///     Crucial to call this method after the Login()<br/>
@@ -58,6 +59,7 @@ namespace AtgDev.Voicemeeter
             };
             return resp;
         }
+#endif
 
         /// <summary>
         ///     Waiting for voicemeeter's macro buttons parameters to update, exits if waiting too long<br/>
@@ -82,6 +84,7 @@ namespace AtgDev.Voicemeeter
             return resp;
         }
 
+#if !NET40
         /// <summary>
         ///     Waiting for voicemeeter's macro buttons parameters to update, exits if waiting too long<br/>
         ///     Might be crucial to call this method after the Login() in order to be able to get correct macro buttons status<br/>
@@ -104,6 +107,7 @@ namespace AtgDev.Voicemeeter
             };
             return resp;
         }
+#endif
 
         /// <summary>
         ///     Run Voicemeeter Application (get installation directory and run Voicemeeter Application).
