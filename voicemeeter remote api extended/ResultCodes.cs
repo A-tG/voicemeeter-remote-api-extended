@@ -55,6 +55,9 @@
         /// For SetParameters()
         /// </summary>
         public const int UnexpectedError1 = -3;
+        /// <summary>
+        /// For SetParameters()
+        /// </summary>
         public const int UnexpectedError2 = -4;
 
         /// <summary>
