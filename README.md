@@ -7,6 +7,14 @@ Provides custom types and methods for Voicemeeter Remote API wrapper.
 
 **Methods and types might change.** That's why this is not included with basic Voicemeeter wrapper
 
+Usage:
+```csharp
+using AtgDev.Voicemeeter;
+using AtgDev.Voicemeeter.Utils;
+
+var vmrApi = new RemoteApiExtender(PathHelper.GetDllPath())
+```
+
 ### Uses:
 * [Dynamic wrapper for umanaged dll](https://github.com/A-tG/Dynamic-wrapper-for-unmanaged-dll)
 * [Voicemeeter Remote API dll dynamic wrapper](https://github.com/A-tG/Voicemeeter-Remote-API-dll-dynamic-wrapper)
