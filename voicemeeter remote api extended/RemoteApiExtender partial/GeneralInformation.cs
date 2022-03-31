@@ -9,11 +9,7 @@ namespace AtgDev.Voicemeeter
         ///     Get Voicemeeter Type.
         /// </summary>
         /// <param name="type">The variable receiving the type</param>
-        /// <returns>
-        ///     0: OK (no error).<br/>
-        ///     -1: cannot get client (unexpected)<br/>
-        ///     -2: no server.<br/>
-        /// </returns>
+        /// <inheritdoc cref="RemoteApiWrapper.GetVoicemeeterType(out int)" path="/returns"/>
         public Int32 GetVoicemeeterType(out VoicemeeterType type)
         {
             var resp = GetVoicemeeterType(out Int32 typeVal);
@@ -27,11 +23,7 @@ namespace AtgDev.Voicemeeter
         /// <param name="version">
         ///     Variable receiving the version
         /// </param>
-        /// <returns>
-        ///     0: OK (no error).<br/>
-        ///     -1: cannot get client (unexpected)<br/>
-        ///     -2: no server.<br/>
-        /// </returns>
+        /// <inheritdoc cref="RemoteApiWrapper.GetVoicemeeterVersion(out int)" path="/returns"/>
         public Int32 GetVoicemeeterVersion(out VoicemeeterVersion version)
         {
             var resp = GetVoicemeeterVersion(out int ver);
@@ -45,11 +37,7 @@ namespace AtgDev.Voicemeeter
         /// <param name="version">
         ///     Variable receiving the version
         /// </param>
-        /// <returns>
-        ///     0: OK (no error).<br/>
-        ///     -1: cannot get client (unexpected)<br/>
-        ///     -2: no server.<br/>
-        /// </returns>
+        /// <inheritdoc cref="RemoteApiWrapper.GetVoicemeeterVersion(out int)" path="/returns"/>
         public Int32 GetVoicemeeterVersion(out string version)
         {
             var resp = GetVoicemeeterVersion(out VoicemeeterVersion ver);
