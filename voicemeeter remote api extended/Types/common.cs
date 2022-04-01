@@ -56,6 +56,15 @@
         public string hardwareID;
         public DeviceType type;
 
-        public override string ToString() => $"Device: {name}, Hardware ID: {hardwareID}, Type: {type}";
+        public override string ToString()
+        {
+            string str = $"Device: {name}";
+            if (!string.IsNullOrEmpty(hardwareID))
+            {
+                str += $", Hardware ID: { hardwareID}";
+            }
+            str += $", Type: {type}";
+            return str;
+        }
     }
 }
