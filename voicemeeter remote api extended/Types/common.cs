@@ -16,8 +16,22 @@
         Standard,
         Banana,
         Potato,
+        // new in 3.1.0.4+
+        Standard64,
+        Banana64,
         // new in 3.0.1.7+
-        Potato64 = 6
+        Potato64,
+        // new in 3.1.0.4+
+        DeviceCheck = 10,
+        MacroButtons,
+        StreamerView,
+        BusMatrix8,
+        BusGEQ15,
+        VBAN2MIDI,
+        CableControlPanel = 20,
+        VMAUXControlPanel,
+        VMVAIO3ControlPanel,
+        VoicemeeterVAIOControlPanel
     }
 
     public enum VoicemeeterLevelType
