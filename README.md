@@ -20,4 +20,4 @@ var vmrApi = new RemoteApiExtender(PathHelper.GetDllPath())
 * [Voicemeeter Remote API dll dynamic wrapper](https://github.com/A-tG/Voicemeeter-Remote-API-dll-dynamic-wrapper)
 
 ## Do you like my projects? Donate
-[![Paypal Logo](https://www.paypalobjects.com/webstatic/paypalme/images/pp_logo_small.png)](https://www.paypal.me/atgDeveloperMusician/5)
+[Available methods](https://taplink.cc/atgdev)
