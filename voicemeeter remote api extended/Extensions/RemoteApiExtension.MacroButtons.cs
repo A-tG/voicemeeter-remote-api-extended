@@ -1,9 +1,9 @@
 ﻿using System;
 using AtgDev.Voicemeeter.Types;
 
-namespace AtgDev.Voicemeeter
+namespace AtgDev.Voicemeeter.Extensions
 {
-    partial class RemoteApiExtender
+    static partial class RemoteApiExtension
     {
         /// <summary>
         ///     Set current button value.
@@ -18,10 +18,10 @@ namespace AtgDev.Voicemeeter
         ///     -3: unknown parameter<br/>
         ///     -5: structure mismatch<br/>
         /// </returns>
-        public Int32 MacroButtonSetStatus(Int32 buttonIndex, Single val, MacrobuttonMode mode)
+        public static Int32 MacroButtonSetStatus(this RemoteApiWrapper api, Int32 buttonIndex, Single val, MacrobuttonMode mode)
         {
             var modeVal = (Int32)mode;
-            return MacroButtonSetStatus(buttonIndex, val, modeVal);
+            return api.MacroButtonSetStatus(buttonIndex, val, modeVal);
         }
 
         /// <summary>
@@ -37,10 +37,10 @@ namespace AtgDev.Voicemeeter
         ///     -3: unknown parameter<br/>
         ///     -5: structure mismatch<br/>
         /// </returns>
-        public Int32 MacroButtonSetStatus(Int32 buttonIndex, bool isOn, MacrobuttonMode mode)
+        public static Int32 MacroButtonSetStatus(this RemoteApiWrapper api, Int32 buttonIndex, bool isOn, MacrobuttonMode mode)
         {
             Single val = Convert.ToSingle(isOn);
-            return MacroButtonSetStatus(buttonIndex, val, mode);
+            return api.MacroButtonSetStatus(buttonIndex, val, mode);
         }
 
         /// <summary>
@@ -56,10 +56,10 @@ namespace AtgDev.Voicemeeter
         ///     -3: unknown parameter<br/>
         ///     -5: structure mismatch<br/>
         /// </returns>
-        public Int32 MacroButtonGetStatus(Int32 buttonIndex, out Single val, MacrobuttonMode mode)
+        public static Int32 MacroButtonGetStatus(this RemoteApiWrapper api, Int32 buttonIndex, out Single val, MacrobuttonMode mode)
         {
             var modeVal = (Int32)mode;
-            return MacroButtonGetStatus(buttonIndex, out val, modeVal);
+            return api.MacroButtonGetStatus(buttonIndex, out val, modeVal);
         }
 
         /// <summary>
@@ -75,9 +75,9 @@ namespace AtgDev.Voicemeeter
         ///     -3: unknown parameter<br/>
         ///     -5: structure mismatch<br/>
         /// </returns>
-        public Int32 MacroButtonGetStatus(Int32 buttonIndex, out bool isOn, MacrobuttonMode mode)
+        public static Int32 MacroButtonGetStatus(this RemoteApiWrapper api, Int32 buttonIndex, out bool isOn, MacrobuttonMode mode)
         {
-            var resp = MacroButtonGetStatus(buttonIndex, out Single val, mode);
+            var resp = api.MacroButtonGetStatus(buttonIndex, out Single val, mode);
             isOn = Convert.ToBoolean(val);
             return resp;
         }
