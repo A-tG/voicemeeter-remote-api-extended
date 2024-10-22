@@ -11,6 +11,7 @@ Usage:
 ```csharp
 using AtgDev.Voicemeeter;
 using AtgDev.Voicemeeter.Utils;
+using AtgDev.Voicemeeter.Extensions;
 
 var vmrApi = new RemoteApiExtender(PathHelper.GetDllPath())
 ```
