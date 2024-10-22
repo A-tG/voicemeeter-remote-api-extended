@@ -1,18 +1,18 @@
 ﻿using System;
 using AtgDev.Voicemeeter.Types;
 
-namespace AtgDev.Voicemeeter
+namespace AtgDev.Voicemeeter.Extensions
 {
-    partial class RemoteApiExtender
+    static partial class RemoteApiExtension
     {
         /// <summary>
         ///     Get Voicemeeter Type.
         /// </summary>
         /// <param name="type">The variable receiving the type</param>
         /// <inheritdoc cref="RemoteApiWrapper.GetVoicemeeterType(out int)" path="/returns"/>
-        public Int32 GetVoicemeeterType(out VoicemeeterType type)
+        public static Int32 GetVoicemeeterType(this RemoteApiWrapper api, out VoicemeeterType type)
         {
-            var resp = GetVoicemeeterType(out Int32 typeVal);
+            var resp = api.GetVoicemeeterType(out Int32 typeVal);
             type = (VoicemeeterType)typeVal;
             return resp;
         }
@@ -24,9 +24,9 @@ namespace AtgDev.Voicemeeter
         ///     Variable receiving the version
         /// </param>
         /// <inheritdoc cref="RemoteApiWrapper.GetVoicemeeterVersion(out int)" path="/returns"/>
-        public Int32 GetVoicemeeterVersion(out VoicemeeterVersion version)
+        public static Int32 GetVoicemeeterVersion(this RemoteApiWrapper api, out VoicemeeterVersion version)
         {
-            var resp = GetVoicemeeterVersion(out int ver);
+            var resp = api.GetVoicemeeterVersion(out int ver);
             version = new VoicemeeterVersion(ver);
             return resp;
         }
@@ -38,9 +38,9 @@ namespace AtgDev.Voicemeeter
         ///     Variable receiving the version
         /// </param>
         /// <inheritdoc cref="RemoteApiWrapper.GetVoicemeeterVersion(out int)" path="/returns"/>
-        public Int32 GetVoicemeeterVersion(out string version)
+        public static Int32 GetVoicemeeterVersion(this RemoteApiWrapper api, out string version)
         {
-            var resp = GetVoicemeeterVersion(out VoicemeeterVersion ver);
+            var resp = api.GetVoicemeeterVersion(out VoicemeeterVersion ver);
             version = ver.ToString();
             return resp;
         }

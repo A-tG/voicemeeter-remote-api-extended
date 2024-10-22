@@ -3,16 +3,14 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using AtgDev.Voicemeeter.Types;
 
-namespace AtgDev.Voicemeeter
+namespace AtgDev.Voicemeeter.Extensions
 {
     /// <summary>
     ///     <para>Extended Voicemeeter Remote API</para>
     ///     Have methods that use custom types
     /// </summary>>
-    public partial class RemoteApiExtender : RemoteApiWrapper
+    public static partial class RemoteApiExtension
     {
-        public RemoteApiExtender(string dllPath) : base(dllPath) { }
-
         /// <summary>
         ///     Waiting for voicemeeter's parameters to update, exits if waiting too long<br/>
         ///     Crucial to call this method after the Login()<br/>
@@ -24,12 +22,12 @@ namespace AtgDev.Voicemeeter
         /// <returns>
         ///     Same as IsParametersDirty()
         /// </returns>
-        public Int32 WaitForNewParams(int maxTime = 1000, int tickTime = 1000 / 60)
+        public static Int32 WaitForNewParams(this RemoteApiWrapper api, int maxTime = 1000, int tickTime = 1000 / 60)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             Int32 resp;
-            while (((resp = IsParametersDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
+            while (((resp = api.IsParametersDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
             {
                 System.Threading.Thread.Sleep(tickTime);
             };
@@ -47,13 +45,14 @@ namespace AtgDev.Voicemeeter
         /// <returns>
         ///     Same as IsParametersDirty()
         /// </returns>
-        public async Task<Int32> WaitForNewParamsAsync(double maxTime = 1000, double tickTime = 1000 / 60)
+        public static async Task<Int32> WaitForNewParamsAsync(this RemoteApiWrapper api, 
+            double maxTime = 1000, double tickTime = 1000 / 60)
         {
             var timeSpan = TimeSpan.FromMilliseconds(tickTime);
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             Int32 resp;
-            while (((resp = IsParametersDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
+            while (((resp = api.IsParametersDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
             {
                 await Task.Delay(timeSpan);
             };
@@ -72,12 +71,12 @@ namespace AtgDev.Voicemeeter
         /// <returns>
         ///     Same as MacroButtonIsDirty()
         /// </returns>
-        public Int32 WaitForMacroNewParams(int maxTime = 1000, int tickTime = 1000 / 60)
+        public static Int32 WaitForMacroNewParams(this RemoteApiWrapper api, int maxTime = 1000, int tickTime = 1000 / 60)
         {
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             Int32 resp;
-            while (((resp = MacroButtonIsDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
+            while (((resp = api.MacroButtonIsDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
             {
                 System.Threading.Thread.Sleep(tickTime);
             };
@@ -95,13 +94,14 @@ namespace AtgDev.Voicemeeter
         /// <returns>
         ///     Same as MacroButtonIsDirty()
         /// </returns>
-        public async Task<Int32> WaitForMacroNewParamsAsync(int maxTime = 1000, int tickTime = 1000 / 60)
+        public static async Task<Int32> WaitForMacroNewParamsAsync(this RemoteApiWrapper api, 
+            int maxTime = 1000, int tickTime = 1000 / 60)
         {
             var timeSpan = TimeSpan.FromMilliseconds(tickTime);
             var stopwatch = new Stopwatch();
             stopwatch.Start();
             Int32 resp;
-            while (((resp = MacroButtonIsDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
+            while (((resp = api.MacroButtonIsDirty()) == 0) && (stopwatch.ElapsedMilliseconds <= maxTime))
             {
                 await Task.Delay(timeSpan);
             };
@@ -117,9 +117,9 @@ namespace AtgDev.Voicemeeter
         ///     0: Ok.<br/>
         ///     -1: not installed<br/>
         /// </returns>
-        public Int32 RunVoicemeeter(VoicemeeterType type)
+        public static Int32 RunVoicemeeter(this RemoteApiWrapper api, VoicemeeterType type)
         {
-            return RunVoicemeeter((int)type);
+            return api.RunVoicemeeter((int)type);
         }
     }
 }
