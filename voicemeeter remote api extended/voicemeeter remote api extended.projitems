@@ -14,6 +14,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\RemoteApiExtension.GetLevels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\RemoteApiExtension.MacroButtons.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Extensions\RemoteApiExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)extensions\RemoteApiExtensions.CustomButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ResultCodes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Types\common.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Types\VoicemeeterChannel.cs" />

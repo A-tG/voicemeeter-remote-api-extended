@@ -81,4 +81,19 @@
             return str;
         }
     }
+
+    public enum CustomButtonType
+    {
+        NotDisplayed = -1,
+        NoPosition,
+        Push,
+        TwoPositions
+    }
+
+    public enum CustomButtonState
+    {
+        NoChange = -1,
+        Released,
+        Pushed
+    }
 }

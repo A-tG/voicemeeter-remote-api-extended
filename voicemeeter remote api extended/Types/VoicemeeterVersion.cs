@@ -57,31 +57,29 @@ namespace AtgDev.Voicemeeter.Types
 
         public bool TryParse(string version)
         {
-            bool result = false;
             // because Voicemeeter uses 4 numbers, 8 bit each in single 32bit integer
             // 255.255.255.255 (or 127.255.255.255)
             const int maxLen = 15;
             const int numbers = 4;
-            if (version.Length <= maxLen)
-            {
-                var versionSplit = version.Split('.');
-                if (versionSplit.Length <= numbers)
-                {
-                    var isValidNumber = int.TryParse(versionSplit[0], out int ver1);
-                    isValidNumber &= int.TryParse(versionSplit[1], out int ver2);
-                    isValidNumber &= int.TryParse(versionSplit[2], out int ver3);
-                    isValidNumber &= int.TryParse(versionSplit[3], out int ver4);
-                    if (isValidNumber)
-                    {
-                        v1 = ver1;
-                        v2 = ver2;
-                        v3 = ver3;
-                        v4 = ver4;
-                        result = true;
-                    }
-                }
-            }
-            return result;
+
+            if (version.Length > maxLen) return false;
+
+            var versionSplit = version.Split('.');
+            if (versionSplit.Length > numbers) return false;
+
+            int ver1, ver2, ver3, ver4;
+            ver1 = ver2 = ver3 = ver4 = 0;
+            var isValidNumber = int.TryParse(versionSplit[0], out ver1) &&
+                int.TryParse(versionSplit[1], out ver2) &&
+                int.TryParse(versionSplit[2], out ver3) &&
+                int.TryParse(versionSplit[3], out ver4);
+            if (!isValidNumber) return false;
+
+            v1 = ver1;
+            v2 = ver2;
+            v3 = ver3;
+            v4 = ver4;
+            return true;
         }
 
         public override string ToString()
